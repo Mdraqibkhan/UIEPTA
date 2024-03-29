@@ -9,15 +9,6 @@ The `uw_data` directory consists of two main subdirectories: `train`, which cont
 
 ## Citation
 If you found this work helpful, please cite it using the following reference:
-
-@inproceedings{khan2023underwater,
-  title={Underwater Image Enhancement with Phase Transfer and Attention},
-  author={Khan, MD Raqib and Kulkarni, Ashutosh and Phutke, Shruti S and Murala, Subrahmanyam},
-  booktitle={2023 International Joint Conference on Neural Networks (IJCNN)},
-  pages={1--8},
-  year={2023},
-  organization={IEEE}
-}
-
+[Copy Citation](copy_text:@inproceedings{khan2023underwater, title={Underwater Image Enhancement with Phase Transfer and Attention}, author={Khan, MD Raqib and Kulkarni, Ashutosh and Phutke, Shruti S and Murala, Subrahmanyam}, booktitle={2023 International Joint Conference on Neural Networks (IJCNN)}, pages={1--8}, year={2023}, organization={IEEE}})
 
 For any inquiries or further information, please contact me at srk689800@gmail.com.

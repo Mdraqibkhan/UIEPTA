@@ -7,5 +7,12 @@ Download [UIEB Dataset](https://li-chongyi.github.io/proj_benchmark.html)) and [
 
 ## Folder Structure
 
-
-This Markdown code will render the folder structure and description in your README file on GitHub in a clear and organized manner. Make sure to replace the placeholder text with the actual details of your dataset folder structure and description.
+uw_data/
+│
+├── train/
+│ ├── a/ : Contains training input images.
+│ └── b/ : Contains corresponding ground truth images for training.
+│
+└── test/
+├── a/ : Contains testing input images.
+└── b/ : Contains corresponding ground truth images for testing.

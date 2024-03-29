@@ -6,4 +6,17 @@ Download [UIEB Dataset](https://li-chongyi.github.io/proj_benchmark.html)) and [
 
 
 
-
+## Folder Structure
+uw_data/
+│
+├── train/
+│   ├── a/
+│   │   └── (Contains training input images)
+│   └── b/
+│       └── (Contains corresponding ground truth images for training)
+│
+└── test/
+    ├── a/
+    │   └── (Contains testing input images)
+    └── b/
+        └── (Contains corresponding ground truth images for testing)

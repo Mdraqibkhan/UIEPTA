@@ -7,7 +7,7 @@ Download [UIEB Dataset](https://li-chongyi.github.io/proj_benchmark.html) and [E
 ## Folder Structure
 The `uw_data` directory consists of two main subdirectories: `train`, which contains subdirectories `a` (containing training input images) and `b` (containing corresponding ground truth images for training), and `test`, which contains subdirectories `a` (with testing input images) and `b` (containing corresponding ground truth images for testing).
 
-#Citation
+##Citation
 If you found this work helpful, please cite it using the following reference:
 
 @inproceedings{khan2023underwater,

@@ -5,18 +5,10 @@ from PIL import Image ,ImageOps
 import torch.utils.data as data
 import torchvision.transforms as transforms
 from utils import is_image_file
-# from skimage import io, color
 import torch
 import cv2
-from pytorch_msssim import ssim
-def torchPSNR(tar_img, prd_img):
-  imdff = torch.clamp(prd_img, 0, 1) - torch.clamp(tar_img, 0, 1)
-  rmse = (imdff**2).mean().sqrt()
-  ps = 20*torch.log10(1/rmse)
-  return ps
 
-def torchSSIM(tar_img, prd_img):
-  return ssim(tar_img, prd_img, data_range=1.0, size_average=True)
+
 def rgb2gray(rgb):
   r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
   gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
@@ -24,9 +16,6 @@ def rgb2gray(rgb):
 def transf(im):
   im = im.resize((256, 256), Image.BICUBIC)
   im=transforms.ToTensor()(im)
-  # w_offset = random.randint(0, max(0, 286 - 256 - 1))
-  # h_offset = random.randint(0, max(0, 286 - 256 - 1))
-  # im = im[:, h_offset:h_offset + 256, w_offset:w_offset + 256]
   im = transforms.Normalize((0.5),(0.5))(im)
   return im 
 
@@ -47,9 +36,6 @@ class DatasetFromFolder(data.Dataset):
     in_grey= a1.convert('L')
     in_grey = in_grey.resize((256, 256), Image.BICUBIC)
     in_grey=transforms.ToTensor()(in_grey)
-    # in_grey = transforms.Normalize((0.5,0.5),(0.5,0.5))(in_grey)
-
-    
     transform_list = [transforms.ToTensor(),
               transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
 

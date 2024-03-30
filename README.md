@@ -11,6 +11,7 @@ The `uw_data` directory consists of two main subdirectories: `train`, which cont
 # Training Instructions
 
 To train the model, execute the following command in your terminal:
+
 python train.py
 
 

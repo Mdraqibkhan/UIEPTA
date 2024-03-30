@@ -2,7 +2,7 @@ from __future__ import print_function
 import argparse
 import os
 from math import log10
-from utils import save_img,VGGPerceptualLoss
+from utils import save_img,VGGPerceptualLoss,ssim
 import torch
 import torch.nn as nn
 import torch.optim as optim

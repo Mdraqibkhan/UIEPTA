@@ -101,6 +101,7 @@ class Gradient_Loss(nn.Module):
         a = l(gradient_x,gradient_xx)
         grad = grad + a
         return grad
+
 class CharbonnierLoss(nn.Module):
     """Charbonnier Loss (L1)"""
 
@@ -113,19 +114,18 @@ class CharbonnierLoss(nn.Module):
         loss = torch.mean(torch.sqrt((diff * diff) + (self.eps*self.eps)))
         return loss  
               
-######--------defie losses -----####
+######--------define losses -----####
 
 Gradient_Loss=Gradient_Loss().to(device)
-criterionGAN = GANLoss().to(device)
 criterionL1 = nn.L1Loss().to(device)
 criterionMSE = nn.MSELoss().to(device)
 L_per = VGGPerceptualLoss().to(device)  
 
 # setup optimizer
-optimizer_g = optim.Adam(net_g.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
-net_g_scheduler = get_scheduler(optimizer_g, opt)
+optimizer_g = optim.Adam(my_net.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
+my_net_scheduler = get_scheduler(optimizer_g, opt)
 
-print('parameters of model are',sum(dict((p.data_ptr(), p.numel()) for p in net_g.parameters()).values()))
+print('parameters of model are',sum(dict((p.data_ptr(), p.numel()) for p in my_net.parameters()).values()))
 for epoch in range(opt.epoch_count, opt.niter + opt.niter_decay + 1):
     # train
     for iteration, batch in enumerate(training_data_loader, 1):
@@ -198,7 +198,7 @@ for epoch in range(opt.epoch_count, opt.niter + opt.niter_decay + 1):
             save_img(out_image, 'train_images/'+str(iteration)+'.png')
 
 
-    update_learning_rate(net_g_scheduler, optimizer_g)
+    update_learning_rate(my_net_scheduler, optimizer_g)
 
 
     # test

@@ -192,7 +192,7 @@ for epoch in range(opt.epoch_count, opt.niter + opt.niter_decay + 1):
             out_image = out_image[0].detach().squeeze(0).cpu()
             
             print("===> Epoch[{}]({}/{}): Loss_D: {:.4f} Loss_G: {:.4f} ".format(
-                epoch, iteration, len(training_data_loader), loss_d.item(), loss_g.item() ))
+                epoch, iteration, len(training_data_loader),loss_g.item() ))
             if not os.path.exists("train_images"):
               os.mkdir("train_images")
             save_img(out_image, 'train_images/'+str(iteration)+'.png')

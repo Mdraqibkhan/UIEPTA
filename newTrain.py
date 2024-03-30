@@ -137,7 +137,7 @@ for epoch in range(opt.epoch_count, opt.niter + opt.niter_decay + 1):
         tar_Y= rgb_to_y(tar)
    
         #####################
-        # (2) Update G network
+         Update  network
         ######################
 
         optimizer_g.zero_grad()

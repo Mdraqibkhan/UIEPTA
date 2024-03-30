@@ -9,10 +9,6 @@ from utils import is_image_file
 import torch
 import cv2
 from pytorch_msssim import ssim
-# from torchvision.transforms.functional import pad
-# rgb = io.imread(filename)
-# lab = color.rgb2lab(rgb)
-
 def torchPSNR(tar_img, prd_img):
   imdff = torch.clamp(prd_img, 0, 1) - torch.clamp(tar_img, 0, 1)
   rmse = (imdff**2).mean().sqrt()
@@ -21,28 +17,10 @@ def torchPSNR(tar_img, prd_img):
 
 def torchSSIM(tar_img, prd_img):
   return ssim(tar_img, prd_img, data_range=1.0, size_average=True)
-
-# def save_img(filepath, img):
-#     cv2.imwrite(filepath, cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
-
-# def pad_img(img, padded_size):
-#     C, H, W = img.shape
-#     pad_size = [(padded_size[0]-H) // 2, (padded_size[1]-W) // 2]
-#     return pad(img, pad_size)    
-
-
 def rgb2gray(rgb):
   r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
   gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
   return gray
-
-# def rgb_2_lab(im):
-#    # srgb_p = ImageCms.createProfile("sRGB")
-#    # lab_p  = ImageCms.createProfile("LAB")
-#    # rgb2lab = ImageCms.buildTransformFromOpenProfiles(srgb_p, lab_p, "RGB", "LAB")
-#    # Lab = ImageCms.applyTransform(im, rgb2lab)
-#    return color.rgb2lab(im)
-
 def transf(im):
   im = im.resize((256, 256), Image.BICUBIC)
   im=transforms.ToTensor()(im)

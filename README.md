@@ -8,16 +8,22 @@ Download [UIEB Dataset](https://li-chongyi.github.io/proj_benchmark.html) and [E
 
 # Folder Structure
 
-uw_data/: This is the main directory containing all underwater image datasets.
 
-train/: This subdirectory holds all training data.
 
-a/: This folder contains the input images (degraded underwater images) used for training your model.
-b/: This folder contains the reference images (ground truth images) that correspond to the input images, used to evaluate the model's performance during training.
-test/: This subdirectory holds all testing data.
+- **`uw_data/`**: This is the main folder that contains all the underwater image datasets.
 
-a/: This folder contains the input images used for testing the trained model.
-b/: This folder contains the reference images that correspond to the test input images, used to assess the quality of the model's outputs.
+- **`train/`**: This folder is where all the training data is stored.
+
+  - **`a/`**: This folder holds the input images, which are the degraded underwater images used to train your model.
+
+  - **`b/`**: This folder contains the reference images, also known as ground truth images. These images are used to evaluate how well the model performs during training.
+
+- **`test/`**: This folder contains all the testing data.
+
+  - **`a/`**: This folder has the input images that will be used to test the trained model.
+
+  - **`b/`**: This folder holds the reference images that correspond to the test input images. These images are used to check the quality of the model's outputs. 
+
 
 
 # Training Instructions
